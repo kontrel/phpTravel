@@ -1,0 +1,27 @@
+<suite name="Test_1">
+    <test name="Zaloguj sie">
+        <classes>
+            <class name="phpTravel.pages.homePage.HomePageTest"/>
+            <methods>
+                <exclude name="searchFlights"/>
+            </methods>
+            <class name="phpTravel.pages.loginPage.LoginPageTest"/>
+        </classes>
+    </test>
+    <parameter name="flightFrom" value="Warsaw"/>
+    <parameter name="flightTo" value="Beijing"/>
+    <parameter name="fromAirportCode" value="WAW"/>
+    <parameter name="toAirportCode" value="PEK"/>
+    <parameter name="departDate" value="2019-03-02"/>
+    <parameter name="returnDate" value="2019-03-06"/>
+    <test name="Znajdz lot">
+        <classes>
+            <class name="phpTravel.pages.accountPage.AccountPageTest"/>
+            <class name="phpTravel.pages.homePage.HomePageTest"/>
+            <methods>
+                <exclude name="loginTest"/>
+            </methods>
+            <class name="phpTravel.pages.flightsPage.FlightsPageTest"/>
+        </classes>
+    </test>
+</suite>
