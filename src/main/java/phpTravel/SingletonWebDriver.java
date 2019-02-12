@@ -16,7 +16,7 @@ public class SingletonWebDriver {
     private SingletonWebDriver() {
         System.setProperty(GeckoDriverService.GECKO_DRIVER_EXE_PROPERTY, "src\\main\\resources\\Geckodriver.exe");
         webDriver = new FirefoxDriver();
-        wait = new WebDriverWait(webDriver, 3);
+        wait = new WebDriverWait(webDriver, 20);
         webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();
     }

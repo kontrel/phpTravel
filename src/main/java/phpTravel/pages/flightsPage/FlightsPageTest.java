@@ -18,20 +18,24 @@ public class FlightsPageTest {
     private ExcelRaport excelRaport = new ExcelRaport();
 
     @BeforeTest
-    public void beforeTest(){
+    public void beforeTest() {
         singletonWebDriver = SingletonWebDriver.getInstance();
         driver = singletonWebDriver.getWebDriver();
         wait = singletonWebDriver.getWait();
-        flightsPageObjects = new FlightsPageObjects(driver,wait);
+        flightsPageObjects = new FlightsPageObjects(driver, wait);
     }
 
     @Test
-    @TestFactoryMethod(description = "booking flight for user",value = "Book Flight",group = "phpTravel")
+    @TestFactoryMethod(description = "booking flight for user", value = "Book Flight", group = "phpTravel")
     public void bookFlight() {
+        try {
             flightsPageObjects.bookFlight();
             excelRaport.writeToExcelPositive(flightsPageObjects.dataList);
+        }catch (WebDriverException e){
+        excelRaport.writeToExcelNegative();
+        throw new Error ("xD");
+        }
     }
-
     @AfterTest
     public void afterTest(){
         driver.quit();

@@ -9,9 +9,9 @@
         </classes>
     </test>
     <parameter name="flightFrom" value="Warsaw"/>
-    <parameter name="flightTo" value="Beijing"/>
+    <parameter name="flightTo" value="Beica"/>
     <parameter name="fromAirportCode" value="WAW"/>
-    <parameter name="toAirportCode" value="PEK"/>
+    <parameter name="toAirportCode" value="BEI"/>
     <parameter name="departDate" value="2019-03-02"/>
     <parameter name="returnDate" value="2019-03-06"/>
     <test name="Znajdz lot">

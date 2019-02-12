@@ -1,12 +1,14 @@
 package phpTravel.pages.homePage;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import phpTravel.ExcelRaport;
 import phpTravel.SingletonWebDriver;
 import pl.b2b.testfactory.annotations.TestFactoryMethod;
 
@@ -16,6 +18,7 @@ public class HomePageTest {
     private WebDriver driver;
     private WebDriverWait wait;
     HomePageObjects homePageObjects;
+    private ExcelRaport excelRaport = new ExcelRaport();
 
     @BeforeTest
     public void beforeTest(){
@@ -38,9 +41,6 @@ public class HomePageTest {
     public void searchFlights(String flightFrom, String flightTo, String fromAirportCode, String toAirportCode, String departDate, String returnDate){
         homePageObjects.searchFlights(flightFrom,flightTo, fromAirportCode,toAirportCode,departDate,returnDate);
     }
-    @AfterTest
-    public void afterTest(){
-        driver.quit();
-    }
+
 
 }

@@ -1,9 +1,6 @@
 package phpTravel;
 
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.*;
 
 import java.io.*;
 import java.util.List;
@@ -50,6 +47,8 @@ public class ExcelRaport {
 
 
 
+
+
             FileOutputStream os = new FileOutputStream(file);
             book.write(os);
             os.close();
@@ -67,6 +66,26 @@ public class ExcelRaport {
     }
 
     public void writeToExcelNegative(){
-
+        try{
+            File file = new File("C://Users//B2B//Desktop//phpTravel.xlsx");
+            FileInputStream fis = new FileInputStream(file);
+            XSSFWorkbook book = new XSSFWorkbook(fis);
+            XSSFSheet sheet = book.getSheetAt(0);
+            int lastRowNum = sheet.getLastRowNum();
+            XSSFRow row = sheet.getRow(lastRowNum);
+            XSSFCell cell = row.getCell(0);
+            int testNumer = (int)cell.getNumericCellValue()+1;
+            int nextRow = lastRowNum+1;
+            row = sheet.createRow(nextRow);
+            cell = row.createCell(0);
+            cell.setCellValue(testNumer);
+            cell = row.createCell(5);
+            cell.setCellValue("NEGATYWNY");
+            FileOutputStream os = new FileOutputStream(file);
+            book.write(os);
+            os.close();
+            book.close();
+            fis.close();
+        }catch(Exception e){e.printStackTrace();}
     }
 }
